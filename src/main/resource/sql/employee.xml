@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:命名空间; -->
+<mapper namespace="com.zzu.employee.dao.IEmployeeDao">
+    <select id="getCount" resultType="_int">
+        select count(id) from employee
+    </select>
+
+    <select id="paging" resultType="com.zzu.vo.Employee">
+        select id,name,mobile,address,permission from employee limit #{position },#{pageSize}
+    </select>
+
+    <select id="commodityDelete" resultType="_boolean">
+        delete id,product_state,discount,name,original_price,number,picture_name,picture_name_ex,description from commodity where id =#{id }
+    </select>
+</mapper>
